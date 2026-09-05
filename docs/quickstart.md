@@ -50,7 +50,7 @@ lip install github.com/LiteLDev/LegacyScriptEngine
 控制台应依次出现：
 
 ```text
-[HuHoBotPenguin] HuHoBot Penguin 已加载（v1.2.1）
+[HuHoBotPenguin] HuHoBot Penguin 已加载（v1.3.0）
 [HuHoBotPenguin] 正在获取 access_token…
 [HuHoBotPenguin] 环境：正式，后端 api.bot.qq.com…
 [HuHoBotPenguin] QQ 机器人已连接（session_id=…）
