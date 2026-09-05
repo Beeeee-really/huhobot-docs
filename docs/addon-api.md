@@ -29,6 +29,9 @@
 | `unregisterBotCommand(key)` | 注销运行时命令 |
 | `registerRegexCommand(pattern, flags, handler)` | 注册正则命令：未命中内置/运行时命令的消息按注册顺序匹配；handler 签名 `(msgPack, match, event)`，`setCancelled` 取消默认处理；返回 id |
 | `unregisterRegexCommand(id)` | 注销正则命令 |
+| `registerAddon(name, version, description, author)` | 注册附属插件元数据（WebUI「附属插件」页与「已加载插件」指令展示用；重复调用覆盖更新） |
+| `unregisterAddon(name)` | 注销附属插件元数据 |
+| `getAddons()` | 已注册附属插件列表（数组） |
 
 命令模板占位符与自定义命令一致：`{params}`、`{group}`、`{user}`、`{0}/{1}...`、`&1/&2...`。
 
