@@ -56,6 +56,11 @@ lip install github.com/LiteLDev/LegacyScriptEngine
 [HuHoBotPenguin] QQ 机器人已连接（session_id=…）
 ```
 
+!!! warning "没看到「QQ 机器人已连接」？"
+    控制台出现「未配置 bot.app-id / bot.secret，QQ 机器人未启动」说明凭据没填好——此时 WebUI / 附属插件加载仍可用，
+    但**收发消息、群指令等一切 QQ 功能都不会工作**。检查 `bot.app-id` / `bot.secret` 是否已填写并 `huhobot reload`。
+
+
 ## 6. 验证（黄金路径）
 
 1. 群内 @机器人 发送 `查信息` → 回复本群 OpenID、本人 OpenID
