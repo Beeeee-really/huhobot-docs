@@ -32,7 +32,6 @@
 - [QQ 指令面板](panel.md)
 - [附属插件 API（开放接口）](addon-api.md)
 - [AI 版功能](ai.md)
-- [LuckyClover 联动](luckyclover.md)
 - [故障排查](troubleshooting.md)
 
 ## License

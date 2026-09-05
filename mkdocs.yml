@@ -37,7 +37,6 @@ nav:
   - 指令面板: panel.md
   - 附属插件 API: addon-api.md
   - AI 版（Llama）: ai.md
-  - LuckyClover 联动: luckyclover.md
   - 故障排查: troubleshooting.md
 
 markdown_extensions:
