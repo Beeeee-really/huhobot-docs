@@ -66,7 +66,7 @@ lip install github.com/LiteLDev/LegacyScriptEngine
 
 1. 群内 @机器人 发送 `查信息` → 回复本群 OpenID、本人 OpenID
 2. `认证` → 回复本人认证状态；管理员 `加管理 <OpenID>` → 落盘 `command-state.json`
-3. `查在线` → 回复在线玩家 + TPS/MSPT（Markdown 卡片）
+3. `查在线` → 回复在线玩家 + TPS（Markdown 卡片）
 4. 游戏内发送 `#测试消息` → 群收到 `[游戏] 测试消息`
 5. 群内 `发信息 hello` → 游戏内广播 `[QQ] … : hello`
 6. 群内 `全量 开` 后发送普通 @消息 → 游戏内出现广播

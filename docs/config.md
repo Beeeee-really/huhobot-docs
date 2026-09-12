@@ -44,7 +44,7 @@
 | `features.full-amount` | `false` | 全量转发默认值（可用 `全量` 命令按群覆盖） |
 | `features.markdown-query-online` | `true` | "查在线"用自定义 Markdown 卡片展示（`msg_type=2`）；失败自动回退纯文本 |
 | `features.markdown-whitelist` | `true` | "查白名单"用自定义 Markdown 卡片展示；失败自动回退纯文本 |
-| `features.online-tps` | `true` | "查在线"输出附带实时 TPS / MSPT 统计（插件自行测量，`onTick` 不可用时自动隐藏） |
+| `features.online-tps` | `true` | "查在线"输出附带实时 TPS 统计（插件自行测量，`onTick` 不可用时自动隐藏） |
 | `features.push-menu` | `true` | 启动时把内置命令与附属插件命令同步到 QQ 官方群聊指令面板，详见[指令面板](panel.md) |
 | `command-panel.<命令名>` | `true` | 单独开关某个内置命令**是否展示在指令面板**（命令本身照常可用；彻底关闭命令用 `commands.<命令名>`） |
 
@@ -79,7 +79,7 @@
 
 当前在线：**{{.online_num}}** 人
 
-TPS：{{.tps}}（MSPT {{.mspt}}）
+TPS：{{.tps}}
 
 {{.player}}
 ```
@@ -90,7 +90,6 @@ TPS：{{.tps}}（MSPT {{.mspt}}）
 | `{{.img_url}}` | MOTD 状态图 URL（自动加时间戳防缓存） |
 | `{{.online_num}}` | 在线人数 |
 | `{{.tps}}` | TPS 状态（如 `🟢 20.0`）；统计不可用时自动移除所在行 |
-| `{{.mspt}}` | MSPT（如 `53ms / 峰值 80ms`） |
 | `{{.player}}` | 玩家列表（`1. **名字**` 换行格式） |
 
 ## 敏感词审核

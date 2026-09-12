@@ -8,7 +8,7 @@
 
 | 版本 | 目录 | 说明 |
 |---|---|---|
-| **标准版** | [`standard/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/standard) | QQ ↔ BDS 双向转发、20+ 群指令、MOTD 状态图、Markdown 卡片、TPS/MSPT 统计、指令面板、附属插件 API |
+| **标准版** | [`standard/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/standard) | QQ ↔ BDS 双向转发、20+ 群指令、MOTD 状态图、Markdown 卡片、TPS 统计、指令面板、附属插件 API |
 | **AI 版（Llama）** | [`llama/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/llama) | 标准版全部功能 + 内置 LLM AI 助理（OpenAI 兼容接口）、function calling 工具、自定义 Skill、WebUI 管理面板 |
 
 > 不需要 AI 用标准版；想要 AI 对话 / 管理面板用 AI 版。
@@ -16,7 +16,7 @@
 ## 核心特性
 
 - **双向聊天转发**：游戏内 `#消息` ↔ QQ 群，格式模板可自定义
-- **群指令系统**：查在线（含实时 TPS/MSPT）、白名单绑定、管理员、认证等 20+ 命令
+- **群指令系统**：查在线（含实时 TPS）、白名单绑定、管理员、认证等 20+ 命令
 - **📋 Markdown 卡片**：查在线 / 查白名单 / `motd` 命令，模板可自由编辑
 - **🖼️ MOTD 状态图**：`motd.minebbs.com` 状态图嵌入查在线卡片
 - **🛡️ 敏感词审核**：本地正则词库 + 可选 OpenAI 兼容接口 AI 二审
