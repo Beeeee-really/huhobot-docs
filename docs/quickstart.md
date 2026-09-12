@@ -25,8 +25,9 @@ lip install github.com/LiteLDev/LegacyScriptEngine
 2. 在「开发设置」里拿到 **AppID** 与 **AppSecret**。
 3. 若开启了 IP 白名单，把 BDS 服务器的公网出口 IP 加入白名单（否则网关连接会被拒）。
 
-!!! warning "提审上线"
-    本插件固定连接**正式环境**（api.bot.qq.com）。机器人需**提审上线**后才能在正式网关收到群事件——未提审时能连接但收不到任何消息，这是最常见的问题，详见[故障排查](troubleshooting.md)。
+!!! warning "常见问题"
+    控制台出现「未配置 bot.app-id / bot.secret，QQ 机器人未启动」说明凭据没填好——此时 WebUI / 附属插件加载仍可用，
+    但**收发消息、群指令等一切 QQ 功能都不会工作**。检查 `bot.app-id` / `bot.secret` 是否已填写并 `huhobot reload`。
 
 ## 4. 填写配置
 
