@@ -8,8 +8,8 @@
 
 | 版本 | 目录 | 说明 |
 |---|---|---|
-| **标准版** | [`HuHoBotPenguin-LLSE/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/HuHoBotPenguin-LLSE) | QQ ↔ BDS 双向转发、20+ 群指令、MOTD 状态图、Markdown 卡片、TPS/MSPT 统计、指令面板、附属插件 API |
-| **AI 版（Llama）** | [`HuHoBotPenguin-LLSE-Llama/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/HuHoBotPenguin-LLSE-Llama) | 标准版全部功能 + 内置 LLM AI 助理（OpenAI 兼容接口）、function calling 工具、自定义 Skill、WebUI 管理面板 |
+| **标准版** | [`standard/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/standard) | QQ ↔ BDS 双向转发、20+ 群指令、MOTD 状态图、Markdown 卡片、TPS/MSPT 统计、指令面板、附属插件 API |
+| **AI 版（Llama）** | [`llama/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/llama) | 标准版全部功能 + 内置 LLM AI 助理（OpenAI 兼容接口）、function calling 工具、自定义 Skill、WebUI 管理面板 |
 
 > 不需要 AI 用标准版；想要 AI 对话 / 管理面板用 AI 版。
 
@@ -36,4 +36,4 @@
 
 ## License
 
-[MIT](https://github.com/HuHoBot/PenguinBDSClient/blob/main/HuHoBotPenguin-LLSE/LICENSE) © 2026 HuHoBot
+[MIT](https://github.com/HuHoBot/PenguinBDSClient/blob/main/LICENSE) © 2026 HuHoBot
