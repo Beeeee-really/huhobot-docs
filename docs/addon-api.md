@@ -40,6 +40,8 @@ module.exports = (addon) => {
 
 `addon` 上下文包含下表全部 API（同名方法，另加 `logger` / `onUnload`）。**注册即记录**：插件卸载或 `huhobot reload` 时自动注销其监听器、命令、正则与元数据，无需手动清理。
 
+在 `addons/` 目录内调用 `addon.registerBotCommand(key, command, permission, pushMenu)` 时会**自动关联本插件名**（等价于 5 参版），群指令「已加载插件」中会显示该扩展的命令数。
+
 ## 方式二：ll.imports 跨插件接口（高级）
 
 供独立 LLSE 插件结构使用（有自己的 manifest.json）。注意：附属插件可能先于主插件加载，`ll.imports` 需自行重试等待主插件注册。
@@ -74,14 +76,15 @@ module.exports = (addon) => {
 | 函数 | 说明 |
 |---|---|
 | `registerBotCommand(key, command, permission, pushMenu)` | 注册运行时自定义命令（`permission > 0` 仅管理员触发）；`pushMenu=true` 时同步到 QQ 指令面板 |
+| `registerBotCommand(addonName, key, command, permission, pushMenu)` | 5 参版：关联到已注册扩展（「已加载插件」显示命令数）；须先 `registerAddon` |
 | `unregisterBotCommand(key)` | 注销运行时命令 |
 | `registerRegexCommand(pattern, flags, handler)` | 注册正则命令：未命中内置/运行时命令的消息按注册顺序匹配；handler 签名 `(msgPack, match, event)`，`setCancelled` 取消默认处理；返回 id |
 | `unregisterRegexCommand(id)` | 注销正则命令 |
-| `registerAddon(name, version, description, author)` | 注册附属插件元数据（WebUI「附属插件」页与「已加载插件」指令展示用；重复调用覆盖更新） |
+| `registerAddon(name, version, description, author)` | 注册附属插件元数据（WebUI「附属插件」页与「已加载插件」指令展示用；重复调用覆盖更新；`version` 省略时默认 `"1.0.0"`） |
 | `unregisterAddon(name)` | 注销附属插件元数据 |
-| `getAddons()` | 已注册附属插件列表（数组） |
+| `getAddons()` | 已注册附属插件列表（数组，含 `commandCount` 命令数） |
 
-命令模板占位符与自定义命令一致：`{params}`、`{group}`、`{user}`、`{0}/{1}...`、`&1/&2...`。
+命令模板占位符与自定义命令一致：`{params}`、`{group}`、`{user}`、`{0}/{1}...`（0-based）、`&1/&2...`（1-based，与 Java 版一致）。
 
 ## 查询
 
@@ -152,6 +155,11 @@ onRecvMsg((msg, event) => {
 
 // 注册运行时命令：群里发"签到" → 触发 onBotCommand 监听，未取消则执行 score add
 registerBotCommand('签到', 'score add {user} 10', 0, true);
+
+// 5 参版：关联到已注册扩展（须先 registerAddon）
+const registerAddon = ll.imports('HuHoBotPenguin', 'registerAddon');
+registerAddon('MyAddon', '1.0.0', '示例扩展', 'Author');
+registerBotCommand('MyAddon', 'mycmd', 'say Hello {params}', 0, true);
 
 // 注册正则命令：消息匹配正则时触发
 registerRegexCommand('^点歌\\s+(.+)$', '', (msg, match, event) => {
