@@ -2,6 +2,24 @@
 
 两种开发方式：**addons 目录**（推荐，简单直接）与 **ll.imports 跨插件接口**（适合独立插件结构）。
 
+也可以直接从 [HuHoBot 附属插件中心](https://addon.txssb.cn) 安装现成插件，见下方「从插件中心安装」。
+
+## 从插件中心安装
+
+无需手动拷贝 zip，服务端可直接拉取：
+
+```text
+# 控制台
+huhobot center 每日          # 搜索
+huhobot install plg_xxx      # 按插件 ID 安装到 addons/ 并热加载
+huhobot install plg_xxx force  # 覆盖已存在目录
+
+# Llama 版 WebUI
+侧边栏 → 插件中心 → 搜索 / 安装
+```
+
+配置项：`addon-center.enabled`（默认开）、`addon-center.api-base`（默认 `https://addon.txssb.cn/api.php`）。详见[配置说明](config.md)。
+
 ## 方式一：addons 目录（推荐）
 
 主插件启动时自动扫描 `plugins/HuHoBotPenguin-LLSE/addons/`（Llama 版为 `-LLSE-Llama/addons/`）目录并加载附属插件，直接传入 API 上下文——**无需 manifest 依赖声明，没有加载顺序问题**（`features.load-addons` 默认开）。改代码后 `huhobot reload` 立即生效。

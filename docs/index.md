@@ -9,7 +9,7 @@
 | 版本 | 目录 | 说明 |
 |---|---|---|
 | **标准版** | [`standard/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/standard) | QQ ↔ BDS 双向转发、20+ 群指令、MOTD 状态图、Markdown 卡片、TPS 统计、指令面板、附属插件 API |
-| **AI 版（Llama）** | [`llama/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/llama) | 标准版全部功能 + 内置 LLM AI 助理（OpenAI 兼容接口）、function calling 工具、自定义 Skill、WebUI 管理面板 |
+| **AI 版（Llama）** | [`llama/`](https://github.com/HuHoBot/PenguinBDSClient/tree/main/llama) | 标准版全部功能 + 内置 LLM AI 助理（OpenAI 兼容接口）、function calling 工具、自定义 Skill、WebUI 管理面板、插件中心浏览安装 |
 
 > 不需要 AI 用标准版；想要 AI 对话 / 管理面板用 AI 版。
 
@@ -22,6 +22,7 @@
 - **🛡️ 敏感词审核**：本地正则词库 + 可选 OpenAI 兼容接口 AI 二审
 - **QQ 官方指令面板**：内置命令 + 附属插件命令自动同步到群指令面板
 - **🔌 附属插件 API**：对齐 Java 版适配器公共 API，其他 LLSE 插件可监听消息、注册命令、调用群管理能力
+- **📦 插件中心**：控制台 / Llama WebUI 从 [addon.txssb.cn](https://addon.txssb.cn) 一键安装附属插件到 `addons/` 并热加载
 - **零 npm 依赖**：自实现 RFC6455 WebSocket / HTTP(S) 客户端
 
 ## 快速导航

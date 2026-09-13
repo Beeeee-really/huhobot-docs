@@ -48,6 +48,26 @@
 | `features.push-menu` | `true` | 启动时把内置命令与附属插件命令同步到 QQ 官方群聊指令面板，详见[指令面板](panel.md) |
 | `command-panel.<命令名>` | `true` | 单独开关某个内置命令**是否展示在指令面板**（命令本身照常可用；彻底关闭命令用 `commands.<命令名>`） |
 
+## 插件中心
+
+从 [addon.txssb.cn](https://addon.txssb.cn) 下载附属插件到本机 `addons/` 目录。
+
+| 配置 | 默认 | 说明 |
+|---|---|---|
+| `addon-center.enabled` | `true` | 是否允许通过控制台 / Llama WebUI 从插件中心安装 |
+| `addon-center.api-base` | `https://addon.txssb.cn/api.php` | 插件中心 API 地址 |
+| `addon-center.filter-lse-only` | `true` | 列表只显示 LLSE/LSE 插件；关闭后仍**不能安装**非 LSE 插件 |
+
+安装 / 卸载：
+
+- **控制台**：`huhobot center` 列表；`huhobot install <插件ID> [force]` 安装；`huhobot uninstall <插件名>` 卸载并删除目录
+- **Llama WebUI**：「插件中心」页安装 / 更新 / 卸载
+- 已安装插件显示「已安装」；中心版本更高时显示「有更新」并可一键更新
+- 同版本重复安装会被拒绝（除非 `force` 覆盖损坏目录）
+- 非 LSE 插件（如 Spigot `.jar`）不可安装
+
+成功后文件落在 `plugins/<本插件>/addons/<插件名>/`，并热加载，无需重启服务器。
+
 ## MOTD / 查在线
 
 | 配置 | 默认 | 说明 |
