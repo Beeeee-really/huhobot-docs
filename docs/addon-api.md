@@ -88,6 +88,10 @@ module.exports = (addon) => {
 | `offPrivateMsg(id)` | 注销单聊监听 |
 | `onJoinRequest(fn)` | 监听入群申请（`GROUP_JOIN_REQUEST`，机器人需群管理员），pack 含 `memberOpenid` / `username` / `joinRequestId` / `verifyMessage` |
 | `offJoinRequest(id)` | 注销入群申请监听 |
+| `onMemberJoin(fn)` | 监听**群成员加入**（`GROUP_MEMBER_ADD`），pack 含 `groupOpenId` / `memberOpenid` / `userOpenid` / `timestamp`；返回 id |
+| `offMemberJoin(id)` | 注销群成员加入监听 |
+| `onMemberLeave(fn)` | 监听**群成员退出**（`GROUP_MEMBER_REMOVE`），pack 同上；返回 id |
+| `offMemberLeave(id)` | 注销群成员退出监听 |
 
 ## 命令注册
 
