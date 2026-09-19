@@ -46,6 +46,7 @@
 | `features.markdown-whitelist` | `true` | "查白名单"用自定义 Markdown 卡片展示；失败自动回退纯文本 |
 | `features.online-tps` | `true` | "查在线"输出附带实时 TPS 统计（插件自行测量，`onTick` 不可用时自动隐藏） |
 | `features.push-menu` | `true` | 启动时把内置命令与附属插件命令同步到 QQ 官方群聊指令面板，详见[指令面板](panel.md) |
+| `features.auto-ack-interaction` | `true` | 收到键盘按钮 / 快捷菜单互动（type=11/12）后自动 `PUT /interactions` 应答，避免客户端一直 loading |
 | `command-panel.<命令名>` | `true` | 单独开关某个内置命令**是否展示在指令面板**（命令本身照常可用；彻底关闭命令用 `commands.<命令名>`） |
 
 ## 插件中心

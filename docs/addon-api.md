@@ -92,6 +92,15 @@ module.exports = (addon) => {
 | `offMemberJoin(id)` | 注销群成员加入监听 |
 | `onMemberLeave(fn)` | 监听**群成员退出**（`GROUP_MEMBER_REMOVE`），pack 同上；返回 id |
 | `offMemberLeave(id)` | 注销群成员退出监听 |
+| `onBotJoinGroup(fn)` | 监听**机器人加入群**（`GROUP_ADD_ROBOT`），pack 含 `groupOpenId` / `opMemberOpenid` / `timestamp`；可用 `event.replyText` 被动欢迎；返回 id |
+| `offBotJoinGroup(id)` | 注销机器人入群监听 |
+| `onBotLeaveGroup(fn)` | 监听**机器人退出群**（`GROUP_DEL_ROBOT`），pack 同上；返回 id |
+| `offBotLeaveGroup(id)` | 注销机器人退群监听 |
+| `onGroupNotifySwitch(fn)` | 监听群资料页「通知」开关（`GROUP_MSG_RECEIVE` / `GROUP_MSG_REJECT`），pack 含 `enabled` / `opMemberOpenid`；返回 id。**官方文档有此事件（Intent `1<<25`），但实测 QQ 往往不往 WebSocket 推送**——开着 `debug.log-events` 仍看不到对应 Dispatch 时，属官方侧未下发，不是插件漏接；接口保留作兼容。注意：资料卡「允许机器人主动发言」是 `INTERACTION` type 18/19 授权，**不是**本事件 |
+| `offGroupNotifySwitch(id)` | 注销通知开关监听 |
+| `onInteraction(fn)` | 监听**键盘按钮 / 快捷菜单互动**（`INTERACTION_CREATE`），pack 含 `id` / `type` / `buttonId` / `buttonData` / `groupOpenId` / `userOpenId`；type=11/12 默认已自动应答；返回 id |
+| `offInteraction(id)` | 注销互动监听 |
+| `ackInteraction(interactionId[, code])` | 手动应答互动（Promise；同一 id 只能一次；`features.auto-ack-interaction` 开启时无需调用） |
 
 ## 命令注册
 
@@ -124,9 +133,12 @@ module.exports = (addon) => {
 |---|---|
 | `sendGroupText(groupOpenId, text[, msgId])` | 向指定群发文本 |
 | `sendGroupMarkdown(groupOpenId, markdown[, msgId])` | 向指定群发 Markdown（msg_type=2） |
+| `sendGroupKeyboard(groupOpenId, content, keyboard[, msgId, opts])` | 发送带内嵌键盘的群消息（Promise；`keyboard` 为 `{id}` 或 `{content:{rows}}`；`opts.msgType` 默认 2 Markdown） |
 | `sendAllGroupsText(text)` | 向所有配置群发文本 |
 | `sendAllGroupsMarkdown(markdown)` | 向所有配置群发 Markdown |
 | `sendPrivateText(userOpenId, text[, msgId])` | 发送单聊文本消息（主动消息有频控与每日上限） |
+| `recallGroupMessage(groupOpenId, messageId)` | 撤回群消息（Promise；发送超 2 分钟不可撤；管理员可撤他人消息，消息 ID 来自消息事件 `messageId` 或发送响应 `id`） |
+| `recallPrivateMessage(userOpenId, messageId)` | 撤回单聊消息（Promise；仅机器人自己发送的） |
 
 ## 群管理（机器人需群管理员身份）
 
