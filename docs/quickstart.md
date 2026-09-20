@@ -27,7 +27,7 @@ lip install github.com/LiteLDev/LegacyScriptEngine
 
 !!! warning "常见问题"
     控制台出现「未配置 bot.app-id / bot.secret，QQ 机器人未启动」说明凭据没填好——此时 WebUI / 附属插件加载仍可用，
-    但**收发消息、群指令等一切 QQ 功能都不会工作**。检查 `bot.app-id` / `bot.secret` 是否已填写并 `huhobot reload`。
+    但**收发消息、群指令等一切 QQ 功能都不会工作**。检查 `bot.app-id` / `bot.secret` 是否已填写并 `huhobot reload`；若两者为空，启动时会**自动在控制台打印二维码**（`bot.auto-qr` 默认开），手机 QQ 扫码即可写入凭据。
 
 ## 4. 填写配置
 
@@ -51,7 +51,7 @@ lip install github.com/LiteLDev/LegacyScriptEngine
 控制台应依次出现：
 
 ```text
-[HuHoBotPenguin] HuHoBot Penguin 已加载（v1.6.0）
+[HuHoBotPenguin] HuHoBot Penguin 已加载（v1.7.0）
 [HuHoBotPenguin] 正在获取 access_token…
 [HuHoBotPenguin] 环境：正式，后端 api.bot.qq.com…
 [HuHoBotPenguin] QQ 机器人已连接（session_id=…）
@@ -59,7 +59,7 @@ lip install github.com/LiteLDev/LegacyScriptEngine
 
 !!! warning "没看到「QQ 机器人已连接」？"
     控制台出现「未配置 bot.app-id / bot.secret，QQ 机器人未启动」说明凭据没填好——此时 WebUI / 附属插件加载仍可用，
-    但**收发消息、群指令等一切 QQ 功能都不会工作**。检查 `bot.app-id` / `bot.secret` 是否已填写并 `huhobot reload`。
+    但**收发消息、群指令等一切 QQ 功能都不会工作**。检查 `bot.app-id` / `bot.secret` 是否已填写并 `huhobot reload`；若两者为空，启动时会**自动在控制台打印二维码**（`bot.auto-qr` 默认开），手机 QQ 扫码即可写入凭据。
 
 
 ## 6. 验证（黄金路径）
@@ -82,6 +82,8 @@ lip install github.com/LiteLDev/LegacyScriptEngine
 | `huhobot center [搜索词]` | 查询 [HuHoBot 附属插件中心](https://addon.txssb.cn) 列表（结果打印到控制台） |
 | `huhobot install <插件ID> [force]` | 从插件中心下载并安装到 `addons/`，自动热加载；同版本已安装需 `force` |
 | `huhobot uninstall <插件名>` | 卸载附属插件并删除 `addons/` 下对应目录 |
+| `huhobot qr` | 扫码绑定机器人：控制台打印链接并生成 `qr-login.svg`，手机 QQ 扫码后自动写入凭据并重载 |
+| `huhobot qrcancel` | 取消进行中的扫码会话 |
 
 !!! note
-    `reload` 会先停掉旧机器人连接再按新配置重建；改 `bot.app-id` / `bot.secret` 等连接凭据同样生效。
+    `reload` 会先停掉旧机器人连接再按新配置重建；改 `bot.app-id` / `bot.secret` 等连接凭据同样生效。凭据为空且 `bot.auto-qr`（默认开）时，启动会在控制台打印二维码并生成 `qr-login.svg`；也可手动 `huhobot qr`。

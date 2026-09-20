@@ -7,7 +7,8 @@
 
 | 配置 | 默认 | 说明 |
 |---|---|---|
-| `bot.app-id` / `bot.secret` | 空 | QQ 开放平台凭据，**必填** |
+| `bot.app-id` / `bot.secret` | 空 | QQ 开放平台凭据，**必填**；控制台 `huhobot qr` 或 Llama WebUI「配置 → 扫码绑定」可手机扫码自动写入 |
+| `bot.auto-qr` | `true` | 启动时若 `bot.app-id`/`bot.secret` 为空，自动在控制台打印二维码字符画并生成 `qr-login.svg`（过期自动刷新；成功后写入凭据并热重载）。设为 `false` 可关闭 |
 | `bot.name` | HuHoBot | 机器人显示名（"在线服务器"命令回复用） |
 | `bot.groups` | `[]` | 允许的群 OpenID 列表；**空 = 所有群**。注意：游戏→群的转发只发给这里配置的群 |
 | `serverName` | 空 | 进服/退服通知前缀 `{server}`；留空回退 `bot.name` |
